@@ -4,16 +4,13 @@ import shutil
 
 
 class Parser:
-    extensions = []  # type: List[str]
+    extensions: List[str] = []
 
     def valid_extension(self, extension):
-        if extension in self.extensions:
-            return True
-        else:
-            return False
+        return extension in self.extensions
 
-    def parse(self, path, source, dest):
-        raise NotImplemented
+    def parse(self, path: Path, source: Path, dest: Path):
+        raise NotImplementedError
 
     def read(self, path):
         with open(path) as f:
